@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project basedir="../game/" default="build" name="game">
+	<property name="TegGame.location" value="../game"/>
+	<import file="${TegGame.location}/macros.xml" />
+
+	<target name="init"> <mInit/> </target>
+    <target name="clean"> <mClean/>     </target>
+    <target name="build" depends="init"> 	<mBuild/>    </target>
+	<target name="jar" depends="build"  >	<mJar/>   </target>
+	<target name="fatJar" depends="jar">	<mFatJar /> 	</target>
+	<target name="cleanAll" depends="clean" > 	<mCleanDeps/> 	</target>
+</project>

@@ -1,0 +1,256 @@
+<project name="build-ant-macros">
+
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.5"/>
+    <property name="source" value="1.5"/>
+
+   	<path id="compile.classes">
+   		<pathelement location="target/classes" />
+    </path>
+	  
+
+	
+<path id="classpath.deps">
+	</path>
+    
+  
+<macrodef name="mInit">
+   <sequential>
+      <mkdir dir="target/classes"/>
+      <mkdir dir="target/deps"/>
+      <mkdir dir="target/test-classes"/>
+   </sequential>
+</macrodef>
+
+<macrodef name="mClean">
+   <sequential>
+        <delete dir="target/"/>   
+        </sequential>
+</macrodef>
+
+<macrodef name="mBuild">
+   <sequential>
+   <mBuildDeps/>
+   <mDepCopy/>
+   <createClassPath/>
+   <echo message="${ant.project.name}: ${ant.file}"/>
+	    
+     <javac  includeantruntime="false" debug="true" debuglevel="${debuglevel}" destdir="target/classes" source="${source}" target="${target}">
+     	<src path="src/main/java"/>
+     	<classpath refid="classpath.deps"/>
+     </javac>
+  
+   
+        </sequential>
+</macrodef>
+<macrodef name="mBuildDeps">
+	<sequential>
+		<echo>"Building deps for ${ant.project.name}"</echo>
+ 	<script language="javascript" taskname="mBuildDeps"> 
+		    		   	<![CDATA[
+	importClass(java.io.File);
+	n=project.getProperty("needs");
+	if(n!=null){
+	needs= n.split(',');
+	
+		    	     	for(i in needs){
+		    				ant = project.createTask("ant");
+		    				
+		    				ant.setAntfile(new File("../"+needs[i]+"/build.xml"));
+		    				ant.setTarget("jar");
+ 							ant.setUseNativeBasedir(false);    				
+ 							ant.setInheritAll(false);
+		    				ant.setInheritRefs(false); 
+ 							ant.setDir(new File("../"+needs[i]+"/"));
+							ant.execute() ;
+		    		}
+		    		}
+		    		]]>
+		    		   </script>
+		<echo>"DONE Building deps for ${ant.project.name}"</echo>
+	</sequential>
+</macrodef>
+	<target name="check-project-jar">
+	    <available file="target/${ant.project.name}.jar" property="jar.present"/>
+	</target>
+
+	<macrodef name="mCleanDeps">
+		<sequential>
+			<echo>"Building deps for ${ant.project.name}"</echo>
+	 	<script language="javascript" taskname="mCleanDeps"> 
+			    		   	<![CDATA[
+		importClass(java.io.File);
+		n=project.getProperty("needs");
+		if(n!=null){
+		needs= n.split(',');
+		
+			    	     	for(i in needs){
+			    				ant = project.createTask("ant");
+			    				
+			    				ant.setAntfile(new File("../"+needs[i]+"/build.xml"));
+			    				ant.setTarget("cleanAll");
+	 							ant.setUseNativeBasedir(false);    				
+	 							ant.setInheritAll(false);
+			    				ant.setInheritRefs(false); 
+	 							ant.setDir(new File("../"+needs[i]+"/"));
+								ant.execute() ;
+			    		}
+			    		}
+			    		]]>
+			    		   </script>
+			<echo>"DONE Building deps for ${ant.project.name}"</echo>
+		</sequential>
+	</macrodef>
+	
+
+<macrodef name="createClassPath">
+<sequential>
+   <script language="javascript" taskname="createClassPath"> 
+	   	<![CDATA[
+		importClass(java.io.File);
+     	path=project.getReference("classpath.deps");
+   		pName=project.getProperty("ant.project.name");
+	   	fs = project.createDataType("fileset");
+		var f=new File("../"+pName+"/target/deps") 
+	   	    fs.setDir(f );
+   			fs.setIncludes("**/*.jar");
+	   		// Get the files (array) of that fileset
+	   	    ds = fs.getDirectoryScanner(project);
+	   	    srcFiles = ds.getIncludedFiles();
+	   	// iterate over that array
+   	//print('Building class path for '+pName+" from " + f.getCanonicalPath());
+   	for (i=0; i<srcFiles.length; i++) {
+		pe=path.createPathElement();
+		print("adding "+srcFiles[i]);
+		pe.setLocation(new File("../"+pName+"/target/deps/"+srcFiles[i]));
+   	
+   	
+   	}
+   	print('Building class path for '+pName+" DONE");
+	]]>
+	   </script>	
+
+</sequential>
+</macrodef>
+
+<macrodef name="mJar" >
+<sequential>	
+  <jar destfile="target/${ant.project.name}.jar"  >
+  	<fileset dir="target/classes" />
+  	<fileset dir="src/main/java/" />
+  	<fileset dir="src/main/resources/" />
+  	<fileset file="" />
+    <manifest>
+        <attribute name="Built-By" value="${user.name}"/>
+      </manifest> 	
+  </jar>
+</sequential>
+</macrodef>
+<macrodef name="mFatJarWeird" >
+<sequential>	
+  	<script language="javascript" taskname="mBuildFatJar"> 
+			    		   	<![CDATA[
+			importClass(java.io.File);
+			pName=project.getProperty("ant.project.name");
+	  		var f=new File("../"+pName+"/target/deps")
+	  		fs1 = project.createDataType("fileset");
+	  		fs1.setDir(f );
+	  		fs1.setIncludes("**/*.jar");
+	   	    ds1 = fs1.getDirectoryScanner(project);
+	   	    srcJarFiles = ds1.getIncludedFiles();
+	  		fs2 = project.createDataType("fileset");
+	  		fs2.setDir(f );
+	  		fs2.setExcludes("**/*.jar");
+			fs3	=project.createDataType("fileset");
+  			print("../"+pName+"/target/"+pName+".jar");
+			fs3.setFile(new File("../"+pName+"/target/"+pName+".jar"));
+
+  			jar=project.createTask("jar");
+	  		jar.setDestFile(new File("../"+pName+"/target/"+pName+".full.jar"));
+	  		jar.addFileset(fs2);
+  			jar.addFileset(fs3);
+  			for(i in srcJarFiles){
+	  			var z=project.createDataType("zipfileset");
+	  			var ff=new File("../"+pName+"/target/deps/"+srcJarFiles[i]);		
+  				z.setSrc(ff);
+	  			//z.setExcludes("**/*.RSA, **/*.SF, **/*.DSA");
+	  			jar.addZipfileset(z);
+	  		}
+			jar.execute();  		
+			    		   	
+			    		]]>
+			    		   </script>
+		
+</sequential>
+</macrodef>
+
+<macrodef name="mDepCopy">
+<sequential>
+		<echo message="copy libs to target/deps"/>
+			<copy todir="target/deps">
+			<fileset dir="lib"/>
+			</copy>
+		    <echo message="copy projects and libs to target/deps"/>
+		    	
+		    	<script language="javascript" taskname="mDepCopy"> 
+		    		   	<![CDATA[
+		    			   	importClass(java.io.File);
+		    			   	n=project.getProperty("needs");
+		    			   	if(n!=null){
+		    			   	needs= n.split(',');
+		    			    pName=project.getProperty("ant.project.name");
+		    		
+		    	     	for(i in needs){
+		    				copy = project.createTask("copy");
+		    				copy.setTofile(new File("../"+pName+"/target/deps/"+needs[i]+".jar"));
+		    				copy.setFile(new File("../"+needs[i]+"/target/"+needs[i]+".jar"));
+							copy.execute() ;
+		    		 		fs = project.createDataType("fileset");
+		    		      	fs.setDir( new File("../"+needs[i]+"/target/deps/") );
+		    				copy2 = project.createTask("copy");
+		    				copy2.setTodir(new File("../"+pName+"/target/deps"));
+							copy2.addFileset(fs)
+		    				copy2.execute() ;
+		    		}
+		    		}
+		    		   	
+		    		]]>
+		    		   </script>
+		 </sequential>
+</macrodef>
+	
+	    
+	    
+	
+	<macrodef name="mFatJar" >
+	<sequential>	
+	  		<jar destfile="target/${ant.project.name}.full.jar"  >
+	    	  <zipgroupfileset dir="target/deps" includes="**/*.jar"/>
+	  			<fileset dir="target/deps" excludes="**/*.jar"/>
+	    		<zipfileset src="target/${ant.project.name}.jar"/>
+	    	    <manifest>
+	    	        <attribute name="Built-By" value="${user.name}"/>
+	    	      </manifest> 	
+	    	  </jar>
+	</sequential>
+	
+	
+</macrodef>
+	
+	<macrodef name="mTestFatJar">
+	<sequential>
+  		<jar destfile="target/${ant.project.name}.test.full.jar"  >
+	    	  <zipgroupfileset dir="target/deps" includes="**/*.jar"/>
+	  			<fileset dir="target/deps" excludes="**/*.jar"/>
+  				<fileset dir="target/test-classes" />
+	    		<zipfileset src="target/${ant.project.name}.jar"/>
+	    	    <manifest>
+	    	        <attribute name="Built-By" value="${user.name}"/>
+	    	      </manifest> 	
+	    	  </jar>
+
+	</sequential>
+	</macrodef>
+</project>
+
