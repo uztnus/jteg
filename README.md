@@ -8,12 +8,12 @@ This clone is fully written in java with layer separation , providing the abilit
 
 
 Building the server
-===================
+--------------------
 
 In order to build the server , do the following
-1. Clone
-2. Go to trunk/server directory and run the build file with the "fatJar" target using ant either from eclipse or the command line.
-3. Assuming you are in trunk/server run
-    java -cp "target/server.full.jar;"  org.maharshak.teg.server.infra.Server
-4. Enjoy your local server :)
+#. Clone
+#. Go to trunk/server directory and run the build file with the "fatJar" target using ant either from eclipse or the command line.
+#. Assuming you are in trunk/server run
+    `java -cp "target/server.full.jar;"  org.maharshak.teg.server.infra.Server`
+#. Enjoy your local server :)
 
