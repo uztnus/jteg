@@ -7,3 +7,13 @@ This is a java server side implementation of the notirous teg game (http://sourc
 This clone is fully written in java with layer separation , providing the ability implement/reimplement new features with ease.
 
 
+Building the server
+===================
+
+In order to build the server , do the following
+1. Clone
+2. Go to trunk/server directory and run the build file with the "fatJar" target using ant either from eclipse or the command line.
+3. Assuming you are in trunk/server run
+    java -cp "target/server.full.jar;"  org.maharshak.teg.server.infra.Server
+4. Enjoy your local server :)
+
