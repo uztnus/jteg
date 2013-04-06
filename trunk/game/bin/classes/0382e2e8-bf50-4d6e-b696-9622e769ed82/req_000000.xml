@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<startGameRequest>
+    <name>StartGameRequest</name>
+    <owner uuid="bd2141a1-45b0-4552-be98-5d70dbbd05c9"/>
+    <state>FINISHED</state>
+    <gameStarter>1</gameStarter>
+    <country-split>
+        <perPlayer>
+            <country name="Sahara_0"/>
+            <country name="Borneo_0"/>
+            <country name="Great Britain_0"/>
+            <country name="Mexico_0"/>
+            <country name="Spain_0"/>
+            <country name="Malaysia_0"/>
+            <country name="Italy_0"/>
+            <country name="Labrador_0"/>
+            <country name="Egypt_0"/>
+            <country name="Madagascar_0"/>
+            <country name="South Africa_0"/>
+            <country name="Israel_0"/>
+            <country name="Turkey_0"/>
+        </perPlayer>
+        <perPlayer>
+            <country name="Chile_0"/>
+            <country name="Canada_0"/>
+            <country name="Mongolia_0"/>
+            <country name="Colombia_0"/>
+            <country name="Poland_0"/>
+            <country name="Iceland_0"/>
+            <country name="Uruguay_0"/>
+            <country name="India_0"/>
+            <country name="Peru_0"/>
+            <country name="Siberia_0"/>
+            <country name="Germany_0"/>
+            <country name="Java_0"/>
+        </perPlayer>
+        <perPlayer>
+            <country name="Terranova_0"/>
+            <country name="Zaire_0"/>
+            <country name="California_0"/>
+            <country name="France_0"/>
+            <country name="Oregon_0"/>
+            <country name="Yukon_0"/>
+            <country name="Russia_0"/>
+            <country name="Sweden_0"/>
+            <country name="New York_0"/>
+            <country name="Taymir_0"/>
+            <country name="Australia_0"/>
+            <country name="Kamchatka_0"/>
+        </perPlayer>
+        <perPlayer>
+            <country name="Sumatra_0"/>
+            <country name="Iran_0"/>
+            <country name="Alaska_0"/>
+            <country name="Tartary_0"/>
+            <country name="Arabia_0"/>
+            <country name="Ethiopia_0"/>
+            <country name="Argentina_0"/>
+            <country name="Aral_0"/>
+            <country name="Japan_0"/>
+            <country name="Greenland_0"/>
+            <country name="Brazil_0"/>
+            <country name="China_0"/>
+            <country name="Gobi_0"/>
+        </perPlayer>
+    </country-split>
+</startGameRequest>

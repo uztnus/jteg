@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<attackRequest>
+    <name>AttackRequest</name>
+    <owner uuid="925c6575-0eb5-44d1-b36f-3979110a4946"/>
+    <state>FINISHED</state>
+    <conqueredCountry>false</conqueredCountry>
+    <dr armiesLostBySource="1" armiesLostByDestenation="0">
+        <dstDice>5</dstDice>
+        <dstDice>0</dstDice>
+        <dstDice>0</dstDice>
+        <srcDice>4</srcDice>
+        <srcDice>3</srcDice>
+        <srcDice>3</srcDice>
+    </dr>
+    <dst name="Poland_0"/>
+    <src name="Russia_0"/>
+</attackRequest>

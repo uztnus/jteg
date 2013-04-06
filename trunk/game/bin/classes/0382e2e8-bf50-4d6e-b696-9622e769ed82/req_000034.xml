@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cardRequest>
+    <name>CardRequest</name>
+    <owner uuid="e5ebe0c6-b80c-417f-974f-c6b201ebae67"/>
+    <state>FINISHED</state>
+    <card type="KNIGHT">
+        <country name="Sweden_0"/>
+    </card>
+</cardRequest>

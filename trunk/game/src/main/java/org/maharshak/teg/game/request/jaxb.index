@@ -1,0 +1,14 @@
+AbstractPutArmyRequest
+AttackRequest
+CardRequest
+ExchangeCards
+FinishTurnRequest
+InitialPutArmiesRequest
+MessageRequest
+MoveAfterConquestRequest
+PlayerRequest
+PutArmyRequest
+PutCardsTwoArmies
+RegroupRequest
+StartGameRequest
+SurrenderRequest

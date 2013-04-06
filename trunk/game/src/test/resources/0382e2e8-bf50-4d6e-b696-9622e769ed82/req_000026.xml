@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<finishTurnRequest>
+    <name>FinishTurnRequest</name>
+    <owner uuid="925c6575-0eb5-44d1-b36f-3979110a4946"/>
+    <state>FINISHED</state>
+</finishTurnRequest>

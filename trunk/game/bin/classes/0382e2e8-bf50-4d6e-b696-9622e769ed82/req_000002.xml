@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<initialPutArmiesRequest playerState="FIRST_PUT">
+    <name>InitialPutArmiesRequest</name>
+    <owner uuid="925c6575-0eb5-44d1-b36f-3979110a4946"/>
+    <state>FINISHED</state>
+    <armiesToPut>
+        <put amount="1">
+            <country name="France_0"/>
+        </put>
+        <put amount="2">
+            <country name="Zaire_0"/>
+        </put>
+        <put amount="2">
+            <country name="Russia_0"/>
+        </put>
+    </armiesToPut>
+</initialPutArmiesRequest>

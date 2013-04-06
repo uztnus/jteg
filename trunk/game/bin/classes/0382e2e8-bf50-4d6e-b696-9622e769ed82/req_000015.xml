@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cardRequest>
+    <name>CardRequest</name>
+    <owner uuid="f6a15f1e-447e-4d85-a6a6-6d38f93faf38"/>
+    <state>FINISHED</state>
+    <card type="KNIGHT">
+        <country name="Peru_0"/>
+    </card>
+</cardRequest>

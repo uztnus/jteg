@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gameDefinition>
+    <conf>
+        <fogOfWar>false</fogOfWar>
+        <maxCardsToHold>5</maxCardsToHold>
+        <maxPlayers>6</maxPlayers>
+        <rules>TEG_RULES_TEG</rules>
+    </conf>
+    <freecolors>
+        <color>PINK</color>
+        <color>GREEN</color>
+    </freecolors>
+    <id>0382e2e8-bf50-4d6e-b696-9622e769ed82</id>
+    <locked>true</locked>
+    <players>
+        <player>
+            <color>BLACK</color>
+            <human>true</human>
+            <mission>Conquer the world</mission>
+            <name>Player1</name>
+            <person uuid="bd2141a1-45b0-4552-be98-5d70dbbd05c9"/>
+        </player>
+        <player>
+            <color>RED</color>
+            <human>false</human>
+            <mission>Conquer the world</mission>
+            <name>Cameron Diaz</name>
+            <person uuid="f6a15f1e-447e-4d85-a6a6-6d38f93faf38"/>
+        </player>
+        <player>
+            <color>YELLOW</color>
+            <human>false</human>
+            <mission>Conquer the world</mission>
+            <name>Britney Spears</name>
+            <person uuid="925c6575-0eb5-44d1-b36f-3979110a4946"/>
+        </player>
+        <player>
+            <color>BLUE</color>
+            <human>false</human>
+            <mission>Conquer the world</mission>
+            <name>Pamela</name>
+            <person uuid="e5ebe0c6-b80c-417f-974f-c6b201ebae67"/>
+        </player>
+    </players>
+</gameDefinition>

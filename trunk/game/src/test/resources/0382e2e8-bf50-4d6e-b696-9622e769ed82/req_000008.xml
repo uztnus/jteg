@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<initialPutArmiesRequest playerState="SECOND_PUT">
+    <name>InitialPutArmiesRequest</name>
+    <owner uuid="bd2141a1-45b0-4552-be98-5d70dbbd05c9"/>
+    <state>FINISHED</state>
+    <armiesToPut>
+        <put amount="2">
+            <country name="Labrador_0"/>
+        </put>
+        <put amount="1">
+            <country name="Mexico_0"/>
+        </put>
+    </armiesToPut>
+</initialPutArmiesRequest>

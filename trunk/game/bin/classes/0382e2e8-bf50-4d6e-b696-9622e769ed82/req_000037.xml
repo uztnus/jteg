@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<moveAfterConquestRequest>
+    <name>MoveAfterConquestRequest</name>
+    <owner uuid="bd2141a1-45b0-4552-be98-5d70dbbd05c9"/>
+    <state>FINISHED</state>
+    <amount>2</amount>
+    <destination name="Greenland_0"/>
+    <source name="Labrador_0"/>
+</moveAfterConquestRequest>

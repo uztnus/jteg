@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<attackRequest>
+    <name>AttackRequest</name>
+    <owner uuid="f6a15f1e-447e-4d85-a6a6-6d38f93faf38"/>
+    <state>FINISHED</state>
+    <conqueredCountry>false</conqueredCountry>
+    <dr armiesLostBySource="1" armiesLostByDestenation="0">
+        <dstDice>5</dstDice>
+        <dstDice>0</dstDice>
+        <dstDice>0</dstDice>
+        <srcDice>4</srcDice>
+        <srcDice>0</srcDice>
+        <srcDice>0</srcDice>
+    </dr>
+    <dst name="Australia_0"/>
+    <src name="Chile_0"/>
+</attackRequest>
